@@ -15,6 +15,7 @@ rhasspy-speakers-cli-hermes
 rhasspy-supervisor
 rhasspy-tts-cli-hermes
 rhasspy-tts-wavenet-hermes
+rhasspy-tts-polly-hermes
 rhasspy-wake-pocketsphinx-hermes
 rhasspy-wake-porcupine-hermes
 rhasspy-wake-precise-hermes

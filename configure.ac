@@ -101,6 +101,8 @@ nanotts_from=prebuilt
 
 is_wavenet_enabled=yes
 
+is_polly_enabled=yes
+
 dnl Set architectures based on host CPU
 AS_CASE([$host_cpu],
     [armv6l],[
@@ -355,6 +357,10 @@ AC_ARG_ENABLE([wavenet],
     AS_HELP_STRING([--disable-wavenet],
         [disable installation of Google Wavenet text to speech system]))
 
+AC_ARG_ENABLE([polly],
+    AS_HELP_STRING([--disable-polly],
+        [disable installation of Amazon Polly text to speech system]))
+
 dnl ---------------------------------------------------------------------------
 dnl Resolve Settings
 dnl ---------------------------------------------------------------------------
@@ -538,6 +544,10 @@ AS_CASE([$enable_wavenet],
         [yes],[is_wavenet_enabled=yes],
         [no],[is_wavenet_enabled=no])
 
+AS_CASE([$enable_polly],
+        [yes],[is_polly_enabled=yes],
+        [no],[is_polly_enabled=no])
+
 dnl Determine prebuilt/source
 AS_CASE([$enable_precompiled_binaries],
         [no],[
@@ -570,6 +580,7 @@ AS_CASE([$enable_in_place],
 dnl Online services
 AS_CASE([$enable_online],
     [no],[is_wavenet_enabled=no])
+    [no],[is_polly_enabled=no])
 
 
 dnl ---------------------------------------------------------------------------
@@ -696,6 +707,7 @@ text to speech:"])
 
 AS_ECHO(["  nanoTTS: ${is_nanotts_enabled} (${nanotts_from})"])
 AS_ECHO(["  Wavenet: ${is_wavenet_enabled}"])
+AS_ECHO(["  Polly: ${is_polly_enabled}"])
 
 AS_ECHO(["
 training:"])
@@ -761,6 +773,8 @@ AC_SUBST([ENABLE_NANOTTS], [$is_nanotts_enabled])
 AC_SUBST([NANOTTS_FROM], [$nanotts_from])
 
 AC_SUBST([ENABLE_WAVENET], [$is_wavenet_enabled])
+
+AC_SUBST([ENABLE_POLLY], [$is_polly_enabled])
 
 AC_SUBST([IN_PLACE], [$is_in_place])
 

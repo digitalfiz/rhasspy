@@ -48,7 +48,7 @@
 	branch = master
 [submodule "rhasspy-server-hermes"]
 	path = rhasspy-server-hermes
-	url = https://github.com/rhasspy/rhasspy-server-hermes.git
+	url = https://github.com/digitalfiz/rhasspy-server-hermes.git
 	branch = master
 [submodule "rhasspy-silence"]
 	path = rhasspy-silence
@@ -60,7 +60,7 @@
 	branch = master
 [submodule "rhasspy-supervisor"]
 	path = rhasspy-supervisor
-	url = https://github.com/rhasspy/rhasspy-supervisor.git
+	url = https://github.com/digitalfiz/rhasspy-supervisor.git
 	branch = master
 [submodule "rhasspy-tts-cli-hermes"]
 	path = rhasspy-tts-cli-hermes
@@ -131,3 +131,6 @@
 [submodule "rhasspy-wake-raven-hermes"]
 	path = rhasspy-wake-raven-hermes
 	url = https://github.com/rhasspy/rhasspy-wake-raven-hermes.git
+[submodule "rhasspy-tts-polly-hermes"]
+	path = rhasspy-tts-polly-hermes
+	url = git@github.com:digitalfiz/rhasspy-tts-polly-hermes.git

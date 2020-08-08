@@ -626,6 +626,7 @@ ac_subst_vars='LTLIBOBJS
 LIBOBJS
 IN_PLACE
 ENABLE_WAVENET
+ENABLE_POLLY
 NANOTTS_FROM
 ENABLE_NANOTTS
 KENLM_FROM
@@ -749,6 +750,7 @@ enable_fuzzywuzzy
 enable_snips
 enable_nanotts
 enable_wavenet
+enable_polly
 enable_dependency_check
 '
       ac_precious_vars='build_alias
@@ -1424,6 +1426,8 @@ Optional Features:
   --disable-nanotts       disable installation of nanoTTS text to speech
                           system
   --disable-wavenet       disable installation of Google Wavenet text to
+                          speech system
+  --disable-polly         disable installation of Amazon Polly text to
                           speech system
   --disable-dependency-check
                           disable checking for external dependencies
@@ -3788,6 +3792,8 @@ nanotts_from=prebuilt
 
 is_wavenet_enabled=yes
 
+is_polly_enabled=yes
+
 case $host_cpu in #(
   armv6l) :
 
@@ -4049,6 +4055,10 @@ if test "${enable_wavenet+set}" = set; then :
   enableval=$enable_wavenet;
 fi
 
+# Check whether --enable-polly was given.
+if test "${enable_polly+set}" = set; then :
+  enableval=$enable_polly;
+fi
 
 
 wake_system=NONE
@@ -4319,6 +4329,15 @@ case $enable_wavenet in #(
      ;;
 esac
 
+case $enable_polly in #(
+  yes) :
+    is_polly_enabled=yes ;; #(
+  no) :
+    is_polly_enabled=no ;; #(
+  *) :
+     ;;
+esac
+
 case $enable_precompiled_binaries in #(
   no) :
 
@@ -4368,7 +4387,9 @@ esac
 
 case $enable_online in #(
   no) :
-    is_wavenet_enabled=no ;; #(
+    is_wavenet_enabled=no
+    is_polly_enabled=no
+    ;; #(
   *) :
      ;;
 esac
@@ -5084,6 +5105,7 @@ text to speech:"
 
 $as_echo "  nanoTTS: ${is_nanotts_enabled} (${nanotts_from})"
 $as_echo "  Wavenet: ${is_wavenet_enabled}"
+$as_echo "  Polly: ${is_polly_enabled}"
 
 $as_echo "
 training:"
@@ -5181,6 +5203,9 @@ NANOTTS_FROM=$nanotts_from
 
 
 ENABLE_WAVENET=$is_wavenet_enabled
+
+
+ENABLE_POLLY=$is_polly_enabled
 
 
 IN_PLACE=$is_in_place

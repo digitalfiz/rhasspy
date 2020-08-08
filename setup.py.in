@@ -102,6 +102,11 @@ enable_wavenet = is_yes("@ENABLE_WAVENET@")
 if not enable_wavenet:
     packages.pop("rhasspytts_wavenet_hermes")
 
+# polly
+enable_polly = is_yes("@ENABLE_POLLY@")
+if not enable_polly:
+    packages.pop("rhasspytts_polly_hermes")
+
 # -----------------------------------------------------------------------------
 
 # True if Rhasspy Python modules will be used directly from source instead of
